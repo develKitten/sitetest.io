@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>SEMISOL</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+        <link href="common.css" rel="stylesheet">
+        <link href="main.css" rel="stylesheet">
+        <link href="./navi/navi.css" rel="stylesheet"> 
+    </head>
+    <body>
+        <!-- 네비게이션 바 -->
+        <header id="_header" class="navbar">
+            <div class="wrap">
+                <!-- 로고 -->
+                <a href="./index.html"><img src="./navi/semisol_logo_white.png" class="logo"></a>
+                
+                <!-- 메뉴 -->
+                <ul class="gnb">
+                    <li><a href="./about/ceo/index.html"><b>기업소개</b></a>
+                        <ul class="depth2">
+                            <li><a href="./about/ceo/index.html">CEO 인사말</a></li>
+                            <li><a href="./about/organization/index.html">조직도</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="./products/parts/01/index.html"><b>제품안내</b></a>
+                        <ul class="depth2">
+                            <li><a href="./products/parts/01/index.html">부품사업부</a></li>
+                            <li><a href="#">장비사업부</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="./contact/index.html"><b>고객문의</B></a></li>
+                </ul>
+
+                <!-- 언어 선택 -->
+                <div class="lang">
+                    <button type="button" class="lang-button" id="lang-button">
+                         <i class="fas fa-globe"></i>
+                        KOR
+                        <i class="fas fa-caret-down"></i>
+                    </button>
+                    <ul class="lang-menu">
+                        <li><a href="?locale=ko">KOR</a></li>
+                        <li><a href="?locale=en">ENG</a></li>
+                    </ul>
+                </div>
+                <!-- 햄버거 바 버튼 -->
+                <button type="button" class="mnu" id="hamburger-button">
+                    <i class="fas fa-bars"></i>
+                </button>
+
+                <!-- 슬라이드 메뉴 -->
+                <nav class="slide-menu" id="slide-menu">
+                    <div class="menu-header">
+                        <img src="./navi/semisol_logo.png" alt="Logo" class="menu-logo">
+                        <button type="button" class="close-btn" id="close-button">
+                            <i class="fas fa-times"></i> 
+                        </button>
+                    </div>
+                    <div class="lang-switch">
+                        <a href="kor/index.html" id="korButton" class="lang-button">KOR</a>
+                        <a href="eng/index.html" id="engButton" class="lang-button">ENG</a>
+                    </div>
+                    <ul class="menu-list">
+                        <li>
+                            <div class="menu-item">
+                                기업소개 <i class="fas fa-chevron-down toggle-arrow"></i>
+                            </div>
+                            <ul class="submenu">
+                                <a href="./about/ceo/index.html"><li>CEO 인사말</li></a>
+                                <a href="./about/organization/index.html"><li>조직도</li></a>
+                            </ul>
+                        </li>
+                        <li>
+                            <div class="menu-item">
+                                제품안내 <i class="fas fa-chevron-down toggle-arrow"></i>
+                            </div>
+                            <ul class="submenu">
+                                <a href="./products/parts/01/index.html"><li>부품사업부</li></a>
+                                <a href="#"><li>장비사업부</li></a>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="./contact/index.html">
+                            <div class="menu-item">
+                                고객문의
+                            </div></a>
+                        </li>                        
+                    </ul>
+                </nav>
+            </div>
+        </header> <script src="./navi/navi.js"></script>
+
+        <!-- 배너 슬라이드 -->
+        <section class="banner text-center">
+            <div class="slides">
+                <div class="slide active" style="background-image: url('./main-img/semiconductor2.png');">
+                    <div class="text">
+                        <h1>미래를 여는<br>반도체 장비 솔루션</h1>
+                        <p>대한민국 대표 반도체 공정 선도기업, 세미솔입니다.</p>
+                    </div>
+                </div>
+                <div class="slide" style="background-image: url('./main-img/semiconductor1.png');">
+                    <div class="text">
+                        <h1>Semiconductor<br>Solution</h1>
+                        <p>대한민국 대표 반도체 공정 선도기업, 세미솔입니다.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- 슬라이드 인디케이터 -->
+            <div class="slide-indicator">
+                <span class="indicator active" data-slide="1">01</span>
+                <span class="indicator" data-slide="2">02</span>
+                <div class="slide-bar">
+                    <div class="slide-progress"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 제품 목록 -->
+        <section class="product-section">
+            <div class="product-header">
+                <h2 class="product-title">
+                    <span class="title-line"></span> 제품 목록
+                </h2>
+                <button class="view-all-button">제품 둘러보기 →</button>
+            </div>
+            <div class="product-carousel-wrapper">
+                <button class="carousel-control prev">&#9664;</button>
+                <div class="product-carousel">
+                    <div class="product-container" id="productContainer"></div>
+                </div>
+                <button class="carousel-control next">&#9654;</button>
+            </div>
+        </section>
+        
+
+        <!-- Contact Us -->
+        <section class="contact-us-section">
+                <div class="contact-content">
+                    <h1>Contact Us</h1>
+                    <button class="contact-button" onclick="location.href='./contact/index.html'">문의 바로가기 <i class="fas fa-arrow-right"></i></button>
+                </div>
+        </section>
+
+        <!-- Footer Section -->
+        <footer class="footer-section">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="./navi/semisol_logo_white.png" alt="SEMISOL Logo"> <!-- 로고 이미지 경로에 맞게 수정 -->
+                </div>
+                <div class="footer-info">
+                    <p>㈜세미솔 | SEMISOL CO., LTD.</p>
+                    <p>OFFICE: 경기 오산시 수목원로88번길 35 (오산현대테라타워CMC) B동 1104~1108호</p>
+                    <p>TEL: +82-031-8077-4823 &nbsp;&nbsp; FAX: +82-031-8077-4853</p>
+                </div>
+            </div>
+        </footer>
+        <script src="./main.js"></script>
+    </body>
+</html>

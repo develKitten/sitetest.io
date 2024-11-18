@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SEMISOL</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="../../../common.css" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
+    <link href="navi/navi.css" rel="stylesheet">
+</head>
+
+<body>
+    <!-- 네비게이션 바 -->
+    <header id="_header" class="navbar">
+        <div class="wrap">
+            <!-- 로고 -->
+            <a href="../../../index.html"><img src="navi/semisol_logo_white.png" class="logo"></a>
+
+            <!-- 메뉴 -->
+            <ul class="gnb">
+                <li><a href="../../../about/ceo/index.html"><b>기업소개</b></a>
+                    <ul class="depth2">
+                        <li><a href="../../../about/ceo/index.html">CEO 인사말</a></li>
+                        <li><a href="../../../about/organization/index.html">조직도</a></li>
+                    </ul>
+                </li>
+                <li><a href="#"><b>제품안내</b></a>
+                    <ul class="depth2">
+                        <li><a href="#">부품사업부</a></li>
+                        <li><a href="#">장비사업부</a></li>
+                    </ul>
+                </li>
+                <li><a href="../../../contact/index.html"><b>고객문의</B></a></li>
+            </ul>
+
+            <!-- 언어 선택 -->
+            <div class="lang">
+                <button type="button" class="lang-button" id="lang-button">
+                    <i class="fas fa-globe"></i>
+                    KOR
+                    <i class="fas fa-caret-down"></i>
+                </button>
+                <ul class="lang-menu">
+                    <li><a href="?locale=ko">KOR</a></li>
+                    <li><a href="?locale=en">ENG</a></li>
+                </ul>
+            </div>
+            <!-- 햄버거 바 버튼 -->
+            <button type="button" class="mnu" id="hamburger-button">
+                <i class="fas fa-bars"></i>
+            </button>
+
+            <!-- 슬라이드 메뉴 -->
+            <nav class="slide-menu" id="slide-menu">
+                <div class="menu-header">
+                    <img src="navi/semisol_logo.png" alt="Logo" class="menu-logo">
+                    <button type="button" class="close-btn" id="close-button">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <div class="lang-switch">
+                    <a href="kor/index.html" id="korButton" class="lang-button">KOR</a>
+                    <a href="eng/index.html" id="engButton" class="lang-button">ENG</a>
+                </div>
+                <ul class="menu-list">
+                    <li>
+                        <div class="menu-item">
+                            기업소개 <i class="fas fa-chevron-down toggle-arrow"></i>
+                        </div>
+                        <ul class="submenu">
+                            <a href="../../../about/ceo/index.html">
+                                <li>CEO 인사말</li>
+                            </a>
+                            <a href="../../../about/organization/index.html">
+                                <li>조직도</li>
+                            </a>
+                        </ul>
+                    </li>
+                    <li>
+                        <div class="menu-item">
+                            제품안내 <i class="fas fa-chevron-down toggle-arrow"></i>
+                        </div>
+                        <ul class="submenu">
+                            <a href="/services/consulting">
+                                <li><a href="#">부품사업부</a></li>
+                                <li><a href="#">장비사업부</a></li>
+                            </a>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="../../../contact/index.html">
+                            <div class="menu-item">
+                                고객문의
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <script src="navi/navi.js"></script>
+
+    <!-- 경로와 제목 표시 -->
+    <section class="breadcrumb">
+        <p>제품안내 &gt; 부품사업부</p>
+        <h1>제품안내</h1>
+    </section>
+
+    <!-- 본문 내용 -->
+    <div class="product-page-container">
+
+        <!-- 카테고리 전환 버튼 -->
+        <div class="category-switch">
+            <button id="partsBtn" class="active">부품사업부</button>
+            <button id="equipmentBtn">장비사업부</button>
+        </div>
+    
+        <!-- 제품 목록 슬라이드 -->
+        <div class="product-carousel-wrapper">
+            <button class="carousel-control prev">&#9664;</button>
+            <div class="product-carousel">
+                <div class="product-container" id="productContainer"></div>
+            </div>
+            <button class="carousel-control next">&#9654;</button>
+        </div>
+    
+        <!-- 제품 상세 정보 -->
+        <div class="product-details">
+            <div class="product-features">
+                <h2>Heat Exchanger & Chemical Circulator</h2>
+                <h3>향온조</h3>
+                <div class="product-images">
+                    <img src="../../그림1.png" alt="Heat Exchanger & Chemical Circulator">
+                </div>
+                <div class="product-content">
+                    <h2>특징</h2>
+                    <br>
+                    <p>• 반도체 공정에 사용되는 약액 온도제어를 목표로 국산화.</p>
+                    <p>• 외산 장비를 대체하기 위한 제품으로 개발.</p>
+                    <p>• 핵심부품에 대해 개발, 국산화 및 적용</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+
+    <!-- Footer Section -->
+    <footer class="footer-section">
+        <div class="footer-content">
+            <div class="footer-logo">
+                <img src="navi/semisol_logo_white.png" alt="SEMISOL Logo">
+            </div>
+            <div class="footer-info">
+                <p>㈜세미솔 | SEMISOL CO., LTD.</p>
+                <p>OFFICE: 경기 오산시 수목원로88번길 35 (오산현대테라타워CMC) B동 1104~1108호</p>
+                <p>TEL: +82-031-8077-4823 &nbsp;&nbsp; FAX: +82-031-8077-4853</p>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

@@ -1,0 +1,475 @@
+/************************************************
+
+                    메인 배너
+     
+*************************************************/
+
+.banner {
+    position: relative;
+    font-family: 'GmarketSansMiddle';
+    background-size: cover;
+    color: white;
+    height: 100vh;
+    overflow: hidden; 
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    text-align:right;
+    background-position: center;
+}
+
+.banner h1,
+.banner p {
+    align-items: center;
+    position: relative;
+    z-index: 2;
+    bottom: 70px;
+}
+
+.banner h1{
+    font-size: 10vh;
+    text-align: right;
+}
+
+.banner p {
+    font-size: 3vh;
+    font-family: 'GMarketSansMiddle';
+    text-align: right;
+}
+
+.text {
+    position: absolute;
+    right: 18%; 
+    bottom: 10%; 
+    color: white;
+    text-align: right; 
+    text-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+
+/* 슬라이드 개별 스타일 */
+.slides {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    transition: transform 1s ease;
+}
+
+.slide {
+    min-width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute; 
+    top: 0;
+    left: 0;
+    opacity: 0; 
+    transition: opacity 0.5s ease; 
+    z-index: 0; 
+}
+
+.slide.active {
+    opacity: 1; 
+    z-index: 1; /
+}
+
+
+/* 슬라이드 인디케이터 스타일 */
+.slide-indicator {
+    position: absolute;
+    bottom: 60px;
+    right: 18%;
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    color: white;
+    font-size: 30px;
+    font-weight: bold;
+    z-index: 2;
+}
+
+.indicator {
+    cursor: pointer;
+    color: #a1a1a1;
+    transition: color 0.3s;
+}
+
+.indicator.active {
+    color: white;
+}
+
+.slide-bar {
+    width: 200px;
+    height: 2px;
+    background-color: #a1a1a1;
+    margin-left: 15px;
+    position: relative;
+}
+
+.slide-progress {
+    height: 2px;
+    background-color: white;
+    width: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: width 10s linear; 
+}
+
+
+/* 모바일 */
+@media (max-width: 1100px) {
+    .banner {
+        height: 50vh; 
+    }
+    .banner h1,
+    .banner p {
+        bottom: 0px;
+    }
+
+    .banner h1{
+        font-size: 4vh;
+        text-align: right;
+    }
+    
+    .banner p {
+        font-size: 1.3vh;
+        font-family: 'GMarketSansMiddle';
+        text-align: right;
+    }
+    
+    .banner .text {
+        bottom: 20%; 
+        right: 5%; 
+    }
+    
+    .slide-indicator {
+        bottom: 5%;
+         right: 5%;
+    }
+
+    .slide-indicator {
+        font-size: 20px;
+        gap: 15px;
+    }
+}
+
+
+/************************************************
+
+                    제품 카드
+     
+*************************************************/
+/* 전체 제품 섹션 스타일 */
+.product-section {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 50px 0px;
+    text-align: center;
+}
+
+.product-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.product-title {
+    font-family: 'GmarketSansMiddle';
+    font-size: 2em;
+    font-weight: bold;
+    color: #333;
+    display: flex;
+    align-items: center;
+}
+
+.title-line {
+    display: inline-block;
+    width: 70px;
+    height: 3px;
+    background-color: #1e3c72;
+    margin-right: 30px;
+}
+
+.view-all-button {
+    font-size: 1em;
+    color: #333;
+    background: transparent;
+    border: 1px solid #ddd;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.view-all-button:hover {
+    background-color: #f0f0f0;
+}
+
+/* 슬라이더 전체를 감싸는 컨테이너 */
+.product-carousel-wrapper {
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.product-carousel-wrapper::-webkit-scrollbar {
+    height: 2px; 
+}
+
+.product-carousel-wrapper::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 10px; 
+}
+
+.product-carousel-wrapper::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.1);
+}
+
+.product-carousel {
+    overflow: hidden;
+    width: 100%;
+}
+
+.product-container {
+    display: flex;
+    transition: transform 0.5s ease;
+    gap: 20px;
+}
+
+/* 제품 카드 스타일 */
+.product-card {
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 250px;
+    flex-shrink: 0;
+    padding: 0;
+    text-align: center;
+    transition: border-color 0.3s;
+}
+
+.product-card img {
+    width: 100%;
+    max-height: 250px;
+    object-fit: cover;
+}
+
+.product-card p {
+    padding: 10px;
+    font-family: 'GmarketSansMiddle';
+    font-size: 1em;
+    color: #333;
+}
+
+.product-card:hover {
+    border-color: #1e3c72;
+}
+
+/* 슬라이드 화살표 버튼 */
+.carousel-control {
+    background: transparent;
+    border: none;
+    font-size: 1.5em;
+    color: #333;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.carousel-control.prev {
+    margin-right: 10px;
+}
+
+.carousel-control.next {
+    margin-left: 10px;
+}
+
+.carousel-control:hover {
+    color: #1e3c72;
+}
+
+/* 모바일 전용 스타일 */
+@media (max-width: 1300px) {
+    .product-title {
+        font-size: 1.7em;
+    }
+    
+    .view-all-button {
+        display: none;
+    }
+
+    .product-container {
+        overflow-x: auto; 
+        padding: 0 15px;
+    }
+
+    .product-card {
+        display: inline-block;
+        width: 150px;
+    }
+    
+    .product-card img {
+        width: 100%;
+        max-height: 200px;
+        object-fit: cover;
+    }
+
+    .carousel-control {
+        display: none; 
+    }
+}
+
+
+/************************************************
+
+                Contact Us
+     
+*************************************************/
+
+/* Contact Us Section 스타일 */
+.contact-us-section {
+    background: url('./main-img/그라데이션.png');
+    background-size: cover;
+    padding: 15vh 50px;
+    text-align: center;
+    color: white;
+}
+
+.contact-content {
+    display: flex;
+    max-width: 1200px; 
+    align-items: center;
+    justify-content: space-between;
+    margin: 0 auto; 
+}
+
+.contact-us-section h1 {
+    font-family: 'GMarketSansMiddle';
+    font-size: 5vh;
+    font-weight: bold;
+    margin: 0; 
+}
+
+.contact-button {
+    font-family: 'GMarketSansMiddle';
+    padding: 12px 30px;
+    font-size: 2vh;
+    color: white;
+    background: transparent;
+    border: 1px solid white;
+    border-radius: 2px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.contact-button i {
+    margin-left: 8px;
+}
+
+.contact-button:hover {
+    background-color: white;
+    color: #1e3c72;
+}
+
+@media screen and (max-width: 1300px) {
+    .contact-us-section {
+        padding: 10vh 40px;
+    }
+
+    .contact-us-section h1 {
+        font-family: 'GMarketSansMiddle';
+        font-size: 3vh;
+        font-weight: bold;
+        margin: 0; 
+    }
+
+    .contact-button {
+        padding: 1vh 2vh;
+        font-size: 1.7vh;
+    }
+}
+
+/* only Z Fold */
+@media screen and (max-width: 344px) {
+    .contact-us-section {
+        padding: 10vh 20px;
+    }
+
+    .contact-us-section h1 {
+        font-family: 'GMarketSansMiddle';
+        font-size: 2.5vh;
+        font-weight: bold;
+        margin: 0; 
+    }
+
+    .contact-button {
+        padding: 1vh 1.8vh;
+        font-size: 1.7vh;
+    }
+}
+
+
+/************************************************
+
+                    아래 정보
+     
+*************************************************/
+
+.footer-section {
+    background-color: black;
+    padding: 50px;
+    color: white;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+    max-width: 1200px; 
+    margin: 0 auto; 
+}
+
+.footer-logo img {
+    width: 150px; 
+}
+
+.footer-info {
+    text-align: right;
+}
+
+.footer-info p {
+    font-size: 14px;
+    margin: 5px 0;
+}
+
+
+@media screen and (max-width: 768px) {
+    .footer-section {
+        padding: 40px;
+    }
+
+    .footer-content {
+        display: block; 
+        text-align:left;
+    }
+    
+    .footer-logo {
+        margin-bottom: 15px;
+    }
+
+    .footer-info {
+        text-align:left;
+    }
+
+    .footer-info p {
+        margin: 5px 0;
+    }
+}

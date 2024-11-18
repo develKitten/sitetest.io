@@ -1,0 +1,400 @@
+/************************************************
+
+                    메인 배너
+     
+*************************************************/
+/* 경로와 제목 스타일 */
+.breadcrumb {
+    position: relative; 
+    padding-top: 300px;
+    padding-right: 17%;
+    padding-bottom: 40px;
+    background-image: url('../../semiconductor1.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat; 
+    justify-content: flex-end; 
+    text-align: right;
+}
+
+.breadcrumb::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); 
+    z-index: 1;
+}
+
+.breadcrumb h1 {
+    font-size: 50px;
+    font-weight: bold;
+    color: rgb(218, 218, 218);
+    margin-top: 10px;
+    position: relative;
+    z-index: 2;
+}
+
+.breadcrumb p {
+    font-size: 20px;
+    color: white;
+    margin: 0;
+    position: relative;
+    z-index: 2;
+}
+
+/* 전체 페이지 스타일 */
+.product-page-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* 카테고리 전환 버튼 */
+.category-switch {
+    display: flex;
+    justify-content: center;
+    gap: 0px;
+    margin-bottom: 20px;
+}
+
+.category-switch button {
+    padding: 15px 50px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.category-switch .active {
+    background-color: #1e3c72;
+    color: white;
+}
+
+@media screen and (max-width: 1100px) {
+    .breadcrumb {
+        padding-top: 300px;
+        padding-right: 10%;
+        padding-bottom: 40px;        
+
+    }
+
+    .breadcrumb h1 {
+        font-size: 40px;
+    }
+    
+    .breadcrumb p {
+        font-size: 15px;
+    }
+    
+
+    /* 본문 내용 스타일 */
+    .content {
+        max-width: 90%;
+        margin: 0 auto;
+        padding: 50px 10px;
+        line-height: 1.6;
+        color: #333;
+    }
+
+    .content p {
+        font-size: 16px;
+    }
+}
+
+
+/************************************************
+
+                   제품 카드
+     
+*************************************************/
+.product-page-container {
+    margin-bottom: 3%;
+}
+
+.product-carousel-wrapper {
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+
+.product-carousel {
+    overflow-x: auto; 
+    -webkit-overflow-scrolling: touch; 
+    width: 100%; 
+}
+
+.product-carousel::-webkit-scrollbar {
+    height: 6px; 
+}
+
+.product-carousel::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.5); 
+    border-radius: 10px; 
+}
+
+.product-carousel::-webkit-scrollbar-track {
+    background-color: rgba(0, 0, 0, 0.1); 
+}
+
+
+.product-container {
+    display: flex;
+    transition: transform 0.5s ease;
+    gap: 10px;
+    overflow: hidden; 
+    width: max-content;
+}
+
+.product-card {
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 250px;
+    flex-shrink: 0;
+    padding: 0;
+    text-align: center;
+    transition: border-color 0.3s;
+}
+
+.product-card img {
+    width: 100%;
+    max-height: 250px;
+    object-fit: cover;
+}
+
+.product-card p {
+    padding: 10px;
+    font-family: 'GmarketSansMiddle';
+    font-size: 1em;
+    color: #333;
+}
+
+.product-card:hover {
+    border-color: #1e3c72;
+}
+
+/* 슬라이드 화살표 버튼 */
+.carousel-control {
+    background: transparent;
+    border: none;
+    font-size: 1.5em;
+    color: #333;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.carousel-control.prev {
+    margin-right: 10px;
+}
+
+.carousel-control.next {
+    margin-left: 10px;
+}
+
+.carousel-control:hover {
+    color: #1e3c72;
+}
+
+/* 모바일 전용 스타일 */
+@media (max-width: 1300px) {
+    .product-title {
+        font-size: 1.7em;
+    }
+    
+    .view-all-button {
+        display: none;
+    }
+
+    .product-container {
+        overflow-x: auto; 
+        padding: 0 15px;
+    }
+
+    .product-card {
+        display: inline-block;
+        width: 150px;
+    }
+    
+    .product-card img {
+        width: 100%;
+        max-height: 200px;
+        object-fit: cover;
+    }
+
+    .carousel-control {
+        display: none; 
+    }
+}
+
+
+/************************************************
+
+                   각 제품 정보
+     
+*************************************************/
+.product-details {
+    margin-top : 100px;
+}
+
+.product-details h2 {
+    text-align: center;
+    font-family: 'GMarketSansMiddle';
+    font-weight: 600;
+    font-size: 2.5em;
+    margin-bottom: 5px;
+}
+
+.product-details h3 {
+    text-align: center;
+    font-size: 1.5em;
+    color: gray;
+    margin-bottom: 20px;
+}
+
+.product-images {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-bottom: 20px;
+    overflow-x: auto;
+    scroll-behavior: smooth; 
+    padding: 10px;
+}
+
+.product-images img {
+    max-width: 100%;
+    height: auto;
+    flex-shrink: 0; 
+    object-fit: contain;
+}
+
+.product-features {
+    text-align: left;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.product-features h4 {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}
+
+.product-features p {
+    font-size: 1em;
+    line-height: 1.6;
+}
+
+
+.product-content {
+    margin-top : 50px;
+    margin-bottom : 50px;
+    max-width: 1200px;
+    text-align: center;
+}
+
+.product-content p {
+    font-size: 25px;
+}
+
+.product-content h2 {
+    font-family: 'GMarketSansMiddle';
+    color : rgb(0, 57, 163);
+    font-weight: 550;
+    font-size: 35px;
+}
+
+
+@media screen and (max-width: 1100px) {
+    .product-details {
+        margin-top : 40px;      
+    }
+
+    .product-images {
+        gap: 5px;
+        padding: 5px; 
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .product-details h2 {
+        font-size: 1.8em;
+    }
+
+    .product-details h3 {
+        font-size: 1.3em;
+    }
+
+    .product-content p {
+        font-size: 1.1em;
+        text-align: center;
+    }
+
+    .product-content h2 {
+        font-size: 1.7em;
+    }
+}
+
+
+
+
+/************************************************
+
+                    아래 정보
+     
+*************************************************/
+
+.footer-section {
+    background-color: black;
+    padding: 50px;
+    color: white;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+    max-width: 1200px; 
+    margin: 0 auto; 
+}
+
+.footer-logo img {
+    width: 150px; 
+}
+
+.footer-info {
+    text-align: right;
+}
+
+.footer-info p {
+    font-size: 14px;
+    margin: 5px 0;
+}
+
+
+@media screen and (max-width: 768px) {
+    .footer-section {
+        padding: 40px;
+    }
+
+    .footer-content {
+        display: block; 
+        text-align:left;
+    }
+    
+    .footer-logo {
+        margin-bottom: 15px;
+    }
+
+    .footer-info {
+        text-align:left;
+    }
+
+    .footer-info p {
+        margin: 5px 0;
+    }
+}

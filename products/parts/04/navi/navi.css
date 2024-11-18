@@ -1,0 +1,422 @@
+/************************************************
+
+                    네비게이션 바 
+     
+*************************************************/
+
+/************************************************
+        기본 네비게이션 바 스타일 (로고, 메뉴)
+*************************************************/
+
+/* 네비게이션 바 스타일 */
+#_header {
+    position: fixed;
+    padding:0px 50px;
+    top: 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    background: transparent;
+    transition: background 0.3s, color 0.3s;
+    z-index: 1000;
+    border-bottom: 0.1px solid #dddddd71;
+    box-sizing: border-box;
+}
+
+/* 네비게이션 내부 래퍼 */
+.wrap {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    justify-content: space-between;
+}
+
+/* 로고 스타일 */
+.logo {
+    vertical-align: middle;
+    width: 180px;
+}
+
+/* 네비게이션 메뉴 (gnb) 스타일 */
+.gnb {
+    display: flex;
+    gap: 110px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+/* 반응형 디자인 */
+@media (max-width: 1500px) {
+    .gnb {
+        gap: 90px;
+    }
+}
+
+@media (max-width: 1400px) {
+    .gnb {
+        gap: 60px;
+    }
+}
+
+/* gnb 메뉴 항목 스타일 */
+.gnb > li {
+    font-family: 'GmarketSansMiddle';
+    padding : 30px 0px;
+    font-size: 21px;
+    position: relative;
+}
+
+.gnb > li > a {
+    text-decoration: none;
+    color: white;
+}
+
+/* 서브메뉴가 있는 리스트 아이템 */
+.gnb ul {
+    display: flex;
+    gap: 20px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* 스크롤 시 스타일 변경 */
+.navbar.scrolled {
+    background-color: white !important;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-bottom: 0.1px solid #ddd; 
+}
+
+.navbar.scrolled .gnb > li > a {
+    color: black;
+}
+
+.navbar.scrolled .lang .current {
+    color: black;
+}
+
+/* Depth2 관련 코드 */
+.gnb li {
+    position: relative;
+}
+
+.gnb li .depth2 {
+    font-family: 'GmarketSansMiddle';
+    display: none;
+    position: absolute;
+    margin-left: -110px;
+    top: 100%;
+    top: calc(100%);
+    left: 50%; 
+    width: 220px;
+    transform: translateX(-50%); 
+    background: rgba(255, 255, 255, 0.85);
+    -webkit-transition: 0.3s;
+    -o-transition: 0.3s;
+    transition: 0.3s;
+    padding: 12px 0; 
+    border: 1px solid #ddd;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 2px;
+    z-index: 10;
+    list-style: none; 
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+}
+
+
+/* 마우스 호버 시 Depth2 메뉴 표시 */
+.gnb li:hover .depth2 {
+    display: block;
+}
+
+/* Depth2 메뉴 항목 스타일 */
+.depth2 li a {
+    text-decoration: none;
+    color: black;
+    font-size: 16px;
+    padding: 10px 20px;
+    white-space: nowrap;
+    display: block; 
+    text-align: center; 
+    transition: background-color 0.3s, color 0.3s;
+    width: 100%; 
+    box-sizing: border-box;
+}
+
+/* 각 항목에 마우스를 올렸을 때 효과 */
+.depth2 li a:hover {
+    background-color: rgba(0, 0, 0, 0.1); 
+    color: black; 
+    border-radius: 4px; 
+}
+
+/************************************************
+            언어선택 버튼, 햄버거 버튼
+*************************************************/
+
+/* 햄버거 버튼 */
+.mnu {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 24px;
+    color: black;
+    display: none;
+}
+
+/* 슬라이드 메뉴 스타일 */
+.slide-menu {
+    position: fixed;
+    top: 0;
+    right: -110%; 
+    width: 60vw;
+    height: 100vh; 
+    background-color: white;
+    transition: right 0.3s ease;
+    z-index: 1000;
+    box-shadow: -4px 0 8px rgba(0, 0, 0, 0.1);
+    overflow-y: auto;
+}
+
+/* 메뉴 헤더 스타일 */
+.menu-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px;
+    border-bottom: 1px solid #ddd;
+}
+
+.menu-logo {
+    width: 100px;
+}
+
+.close-btn {
+    background: transparent;
+    border: none;
+    font-size: 24px;
+    color: black;
+}
+
+/* 언어 선택 */
+.language-selector {
+    padding: 10px 15px;
+    font-size: 14px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+}
+
+/* 메뉴 리스트 */
+.menu-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.menu-item {
+    text-decoration: none;
+    color:black;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    cursor: pointer;
+    border-bottom: 1px solid #ddd;
+}
+
+.menu-item i {
+    transition: transform 0.3s;
+}
+
+/* 서브메뉴 기본 숨김 */
+.submenu {
+    display: none;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    padding-left: 20px;
+}
+
+.submenu li {
+    padding: 10px 0;
+    font-size: 14px;
+}
+
+.submenu li:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.submenu a {
+    list-style: none;
+    text-decoration: none;
+    color: black;
+}
+
+/* 슬라이드 메뉴가 열렸을 때 */
+.slide-menu.open {
+    right: 0;
+}
+
+/* 화살표 회전 */
+.menu-item.active .toggle-arrow {
+    transform: rotate(180deg);
+}
+
+.lang-switch {
+    display: flex;
+    gap: 5px;
+}
+
+.lang-button {
+    padding: 8px 15px;
+    font-size: 14px;
+    border: 1px solid #ddd;
+    background-color: transparent;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    text-decoration: none;
+    color: inherit;
+}
+
+.lang-button.active {
+    background-color: #1e3c72;
+    color: white;
+    border-color: #1e3c72;
+}
+
+.lang-button:not(.active):hover {
+    background-color: #f0f0f0;
+}
+
+
+/* -----------------------------------------------                               
+                 언어선택 버튼
+   -----------------------------------------------*/
+/* 언어 선택 버튼 스타일 */
+.lang {
+    
+    position: relative;
+}
+
+.lang-button {
+    gap: 10px;
+    display: flex;
+    align-items: center;
+    padding: 8px 14px;
+    font-size: 14px;
+    color: white;
+    background-color: transparent;
+    border: 1px solid white;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.lang-button:hover {
+    background-color: rgba(255, 255, 255); 
+    color: rgb(0, 0, 0) !important;
+}
+
+.icon-world {
+    margin-right: 5px;
+    font-size: 16px; 
+}
+
+.icon-arrow {
+    margin-left: 5px;
+    font-size: 10px; 
+}
+
+/* 언어 메뉴 숨김 */
+.lang-menu {
+    display: none;
+    position: absolute;
+    font-family: 'GmarketSansMiddle';
+    top: 100%;
+    left: 50%; 
+    transform: translateX(-50%); 
+    background: rgba(255, 255, 255, 0.788);
+    background: rgba(255, 255, 255, 0.829);
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+    list-style: none; 
+}
+
+.lang:hover .lang-menu {
+    display: block;
+}
+
+.lang-menu li {
+    padding: 5px 20px;
+    font-size: 16px;
+    white-space: nowrap;
+}
+
+.lang-menu li a {
+    color: black;
+    text-decoration: none;
+}
+
+.lang-menu li:hover {
+    background-color: #f0f0f0;
+}
+
+.lang-button.scrolled {
+    color: black;
+    border: 1px solid black;
+}
+
+
+/*==================================================
+  ==================================================
+  
+                    MOBILE Version
+
+  ==================================================
+  ================================================== */
+@media (max-width: 1300px) {
+    #_header {
+        color : black;
+        padding : 20px 20px;
+        background-color: white;
+        border-bottom: 0.1px solid #ddd;
+    }
+
+    .gnb {
+        display: none;
+    }
+
+    .lang {
+        display:none;
+    }
+
+    .logo {
+        width: 150px;
+    }
+
+    /* 햄버거 메뉴 스타일 조정 */
+    .mnu {
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        font-size: 24px;
+        color: black; 
+    }
+
+    .mnu {
+        display: block;
+    }
+}
+
+@media (max-width: 768px) {
+    .logo {
+        width: 15vh;
+    }
+}
