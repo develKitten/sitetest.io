@@ -53,30 +53,54 @@ startSlideShow();
 
 const productData = [
     {
-        image: './products/그림1.png',
-        title: 'Heat Exchanger & Chemical Circulator',
+        category: "부품사업부",
+        title: "Heat Exchanger & Chemical Circulator",
+        image: "products/그림1.png",
+        description: "향온조",
+        detailsPage: "products/parts/01/index.html"
     },
     {
-        image: './products/그림2.png',
-        title: 'Non-contact IR Temp Sensor',
+        category: "부품사업부",
+        title: "IR Temp Sensor",
+        image: "products/그림2.png",
+        description: "IR Temp Sensor",
+        detailsPage: "products/parts/02/index.html"
     },
     {
-        image: './products/그림3.png',
-        title: 'High-Temp Flowmeter For Chemical',
+        category: "부품사업부",
+        title: "High-Temp Flowmeter For Chemical",
+        image: "products/그림3.png",
+        description: "High-Temp Flowmeter For Chemical",
+        detailsPage: "products/parts/03/index.html"
     },
     {
-        image: './products/그림4.png',
-        title: 'MRM Valve',
+        category: "부품사업부",
+        title: "MRM Valve",
+        image: "products/그림4.png",
+        description: "MRM Valve",
+        detailsPage: "products/parts/04/index.html"
     },
     {
-        image: './products/그림5-1.png',
-        title: 'Flow Control Valve & Liquid Flow Controller',
+        category: "부품사업부",
+        title: "FCV",
+        image: "products/그림5-1.png",
+        description: "Flow Control Valve & Liquid Flow Controller",
+        detailsPage: "products/parts/05/index.html"
     },
     {
-        image: './products/그림6-1.png',
-        title: 'Ultrasonic Liquid Flow Controller',
+        category: "부품사업부",
+        title: "Ultrasonic Liquid Flow Controller",
+        image: "products/그림6-1.png",
+        description: "초음파 유량계 제어기, 유량계 센서",
+        detailsPage: "products/parts/06/index.html"
+    },
+    {
+        category: "부품사업부",
+        title: "PFA TUBE & Fitting",
+        image: "products/그림7.png",
+        description: "PFA TUBE & Fitting",
+        detailsPage: "products/parts/07/index.html"
     }
-    // 카드 추가
 ];
 
 
@@ -88,42 +112,81 @@ let scrollPosition = 0;
 const cardWidth = 240; 
 
 
+// 제품 카드 생성 및 클릭 시 링크 이동 함수
 function initializeProducts() {
     productData.forEach((product) => {
-        const card = document.createElement('div');
-        card.classList.add('product-card');
-        
-        card.innerHTML = `
-            <img src="${product.image}" alt="${product.title}">
-            <p>${product.title}</p>
-        `;
-        
-        container.appendChild(card);
+        if (product.category === "부품사업부") 
+            {
+            const card = document.createElement('div');
+            card.classList.add('product-card');
+            
+            card.innerHTML = `
+                <img src="${product.image}" alt="${product.title}">
+                <p>${product.title}</p>
+            `;
+
+            card.addEventListener('click', () => 
+            {
+                window.location.href = product.detailsPage;
+            });
+            
+            container.appendChild(card);
+        }
     });
     checkButtons(); 
 }
 
-// 슬라이드 이동 함수
 function showNextSlide() {
-    scrollPosition -= cardWidth;
-    container.style.transform = `translateX(${scrollPosition}px)`;
+    const maxScroll = -(cardWidth * (container.childElementCount - 3)); 
+    if (scrollPosition > maxScroll) { 
+        scrollPosition -= cardWidth;
+        if (scrollPosition < maxScroll) {
+            scrollPosition = maxScroll; 
+        }
+        container.style.transform = `translateX(${scrollPosition}px)`;
+    }
     checkButtons();
 }
 
-function showPrevSlide() {
+function checkButtons() {
+    const containerWidth = container.offsetWidth; 
+    const totalCardsWidth = cardWidth * container.childElementCount;
+    const maxScroll = containerWidth - totalCardsWidth; 
+    
+    prevButton.disabled = scrollPosition >= 0; 
+    nextButton.disabled = scrollPosition <= maxScroll; 
+}
+
+
+function showPrevSlide() 
+{
     scrollPosition += cardWidth;
     container.style.transform = `translateX(${scrollPosition}px)`;
     checkButtons();
 }
 
 // 버튼 활성화/비활성화 설정 함수
-function checkButtons() {
+function checkButtons() 
+{
     const maxScroll = -(cardWidth * (container.childElementCount - 3));
     prevButton.disabled = scrollPosition === 0;
     nextButton.disabled = scrollPosition <= maxScroll;
 }
 
+function initializeCarousel() {
+    scrollPosition = 0; 
+    container.style.transform = `translateX(${scrollPosition}px)`; 
+    checkButtons(); 
+}
+
+
 // 초기화 및 이벤트 리스너 설정
 initializeProducts(); 
+initializeCarousel();
+
 nextButton.addEventListener('click', showNextSlide);
 prevButton.addEventListener('click', showPrevSlide);
+
+window.addEventListener("resize", () => {
+    initializeCarousel();
+});

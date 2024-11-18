@@ -309,6 +309,10 @@
     font-size: 35px;
 }
 
+.product-content > .product-images > img {
+    width : 100%;
+}
+
 
 @media screen and (max-width: 1100px) {
     .product-details {
