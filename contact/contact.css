@@ -48,7 +48,6 @@
 /* 본문 내용 스타일 */
 .contact-section {
     max-width: 1200px;
-    width: 100%;
     padding: 20px;
     margin: 0 auto;
     text-align: center;
@@ -83,7 +82,6 @@
 
 .contact-form input,
 .contact-form textarea {
-    width: 100%;
     padding: 20px;
     border: 1px solid #ddd;
     border-radius: 4px;
